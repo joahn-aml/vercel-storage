@@ -3,12 +3,25 @@
 	import { Button, Input } from '$lib/form';
 	import { fade } from 'svelte/transition';
 	import { user } from '$lib/auth/user.js';
+	import { login } from '$lib/auth/login.js';
 
 	let username = '';
 	let password = '';
+	let error = false;
 
-	const submit = () => {
-		user.login();
+	$: {
+		error = false;
+		[username, password]; // Dependencies
+	}
+
+	const submit = async () => {
+		const response = await login(username, password);
+
+		if (response) {
+			user.login(response);
+		} else {
+			error = true;
+		}
 	};
 </script>
 
@@ -18,7 +31,7 @@
 
 <section in:fade={{ duration: 0 }} out:fade={{ duration: 200 }}>
 	<form on:submit|preventDefault={submit}>
-		<Triangle glow={username !== '' && password !== ''} />
+		<Triangle glow={username !== '' && password !== ''} {error} />
 		<Input label="Username" placeholder="Enter your username" bind:value={username} autofocus />
 		<Input
 			label="Password"
@@ -52,7 +65,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		gap: 20px;
+		gap: 10px;
 		width: 300px;
 		padding-bottom: 126px;
 	}

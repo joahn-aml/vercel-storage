@@ -20,7 +20,7 @@
 		justify-items: flex-end;
 		gap: var(--gap);
 		width: 160px;
-		height: 100px;
+		height: 90px;
 		padding: 10px;
 		background-color: var(--color-gray-0);
 		border: 1px solid var(--color-gray-300);

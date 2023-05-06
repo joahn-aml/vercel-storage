@@ -1,11 +1,14 @@
 import { writable } from 'svelte/store';
 
+/** @typedef { import("$lib/types/user").User } User */
+
 const createUserStore = () => {
-	/** @type {import("svelte/store").Writable<null | import("$lib/types/user").User>} */
+	/** @type {import("svelte/store").Writable<null | User>} */
 	const { subscribe, set } = writable(null);
 
-	const login = () => {
-		set({ id: 'joahn', firstname: 'Joahn', lastname: 'Aml', color: 'aquamarine' });
+	/** @type {(user: User) => void}  */
+	const login = (user) => {
+		set(user);
 	};
 
 	const logout = () => {
