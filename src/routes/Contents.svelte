@@ -14,7 +14,7 @@
 			<h2 style:--color={'var(--color-4)'}>Calendar</h2>
 			<p>
 				A calendar to drag and drop events. Uses <a
-					href="https://vercel.com/storage/kv"
+					href="https://vercel.com/storage/postgres"
 					target="_blank"
 					rel="noopener noreferrer">Vercel Postgres</a
 				>.

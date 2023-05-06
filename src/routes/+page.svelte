@@ -68,7 +68,7 @@
 
 	p {
 		margin-top: 100px;
-		margin-bottom: 100px;
+		margin-bottom: 120px;
 		color: var(--color-gray-200);
 		height: 20px;
 	}

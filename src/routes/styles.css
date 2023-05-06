@@ -27,15 +27,17 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--color-bg);
+	overflow-x: hidden;
+	overscroll-behavior: none;
 }
 
 a {
 	text-decoration: inherit;
 	transition: color ease-out 200ms 0ms;
-
 	-webkit-user-drag: none;
 }
 
 ::selection {
 	background: papayawhip;
+	color: var(--color-gray-100);
 }

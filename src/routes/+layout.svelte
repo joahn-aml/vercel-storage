@@ -2,13 +2,19 @@
 	import './styles.css';
 	import Header from '$lib/header/Header.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
+	import Login from '$lib/login/Login.svelte';
+	import { user } from '$lib/auth/user.js';
 </script>
 
-<Header />
-<main>
-	<div><slot /></div>
-</main>
-<Footer />
+{#if $user}
+	<Header />
+	<main>
+		<div><slot /></div>
+	</main>
+	<Footer />
+{:else}
+	<Login />
+{/if}
 
 <style>
 	main {

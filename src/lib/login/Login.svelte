@@ -1,0 +1,58 @@
+<script>
+	import { Button, Input } from '$lib/form';
+	import { fade } from 'svelte/transition';
+	import { user } from '$lib/auth/user.js';
+
+	let username = '';
+	let password = '';
+
+	const submit = () => {
+		console.log({ username, password });
+		user.login();
+	};
+</script>
+
+<svelte:head>
+	<title>Login ⋅ Vercel Storage</title>
+</svelte:head>
+
+<section in:fade={{ duration: 0 }} out:fade={{ duration: 200 }}>
+	<form on:submit|preventDefault={submit}>
+		<Input label="Username" placeholder="Enter your username" bind:value={username} />
+		<Input
+			label="Password"
+			placeholder="Enter your password"
+			bind:value={password}
+			type="password"
+		/>
+		<div style:padding-top="10px">
+			<Button full>Login</Button>
+		</div>
+	</form>
+</section>
+
+<style>
+	section {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+		background-color: var(--color-gray-0);
+		z-index: 2000;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 20px;
+		width: 300px;
+		height: 485px;
+	}
+</style>
