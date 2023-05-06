@@ -1,19 +1,42 @@
 <script>
+	import { onMount } from 'svelte';
+
+	/** @type {HTMLInputElement | null} */
+	let element = null;
 	export let label = '';
 	export let value = '';
 	export let placeholder = '';
+	export let autofocus = false;
 
 	/** @type {"text" | "password"} */
 	export let type = 'text';
+
+	onMount(() => {
+		if (autofocus && element) element.focus();
+	});
 </script>
 
 <label>
 	<div>{label}</div>
 	{#if type === 'text'}
-		<input type="text" {placeholder} spellcheck="false" autocomplete="false" bind:value />
+		<input
+			bind:this={element}
+			type="text"
+			{placeholder}
+			spellcheck="false"
+			autocomplete="false"
+			bind:value
+		/>
 	{/if}
 	{#if type === 'password'}
-		<input type="password" {placeholder} spellcheck="false" autocomplete="false" bind:value />
+		<input
+			bind:this={element}
+			type="password"
+			{placeholder}
+			spellcheck="false"
+			autocomplete="false"
+			bind:value
+		/>
 	{/if}
 </label>
 

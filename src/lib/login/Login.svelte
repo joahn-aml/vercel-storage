@@ -1,4 +1,5 @@
 <script>
+	import Triangle from './Triangle.svelte';
 	import { Button, Input } from '$lib/form';
 	import { fade } from 'svelte/transition';
 	import { user } from '$lib/auth/user.js';
@@ -18,7 +19,8 @@
 
 <section in:fade={{ duration: 0 }} out:fade={{ duration: 200 }}>
 	<form on:submit|preventDefault={submit}>
-		<Input label="Username" placeholder="Enter your username" bind:value={username} />
+		<Triangle glow={username !== '' && password !== ''} />
+		<Input label="Username" placeholder="Enter your username" bind:value={username} autofocus />
 		<Input
 			label="Password"
 			placeholder="Enter your password"
@@ -50,9 +52,9 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
+		justify-content: flex-start;
 		gap: 20px;
 		width: 300px;
-		height: 485px;
+		padding-bottom: 126px;
 	}
 </style>
