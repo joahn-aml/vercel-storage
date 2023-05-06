@@ -53,7 +53,6 @@
 		border-radius: 2px;
 		color: var(--color-gray-300);
 		font-size: 16px;
-		font-weight: 600;
 		user-select: none;
 		cursor: pointer;
 		outline: none;
