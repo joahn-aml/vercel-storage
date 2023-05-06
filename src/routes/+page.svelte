@@ -75,8 +75,6 @@
 
 	section :global(a) {
 		color: var(--color-gray-300);
-		text-decoration: inherit;
-		transition: color ease-out 200ms 0ms;
 	}
 
 	section :global(a:hover) {
