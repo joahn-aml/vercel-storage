@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Home | Vercel Storage</title>
+	<title>Home ⋅ Vercel Storage</title>
 </svelte:head>
 
 <section>

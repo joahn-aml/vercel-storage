@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Users | Vercel Storage</title>
+	<title>Users ⋅ Vercel Storage</title>
 </svelte:head>
 
 <section>

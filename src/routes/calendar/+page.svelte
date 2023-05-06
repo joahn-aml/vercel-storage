@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Calendar | Vercel Storage</title>
+	<title>Calendar ⋅ Vercel Storage</title>
 </svelte:head>
 
 <section>

@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Images | Vercel Storage</title>
+	<title>Images ⋅ Vercel Storage</title>
 </svelte:head>
 
 <section>
