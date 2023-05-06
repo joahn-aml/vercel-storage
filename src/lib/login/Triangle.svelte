@@ -1,9 +1,10 @@
 <script>
 	export let glow = false;
+	export let error = false;
 </script>
 
 <div class="wrapper">
-	<div class:glow class="triangle" />
+	<div class:glow class:error class="triangle" />
 </div>
 
 <style>
@@ -23,7 +24,11 @@
 		transition: border-bottom-color ease-out 400ms 0ms;
 	}
 
-	.triangle.glow {
+	.glow {
 		border-bottom-color: var(--color-gray-200);
+	}
+
+	.error {
+		border-bottom-color: tomato !important;
 	}
 </style>

@@ -1,11 +1,15 @@
 <script>
+	import Dropdown from './Dropdown.svelte';
 	import { user } from '$lib/auth/user.js';
+
+	let dropdown = false;
 
 	$: color = $user ? $user.color : 'transparent';
 </script>
 
 <section>
-	<button style:--color={color} class="user" on:click={() => user.logout()} />
+	<button style:--color={color} class="user" on:click={() => (dropdown = !dropdown)} />
+	{#if dropdown}<Dropdown />{/if}
 </section>
 
 <style>
