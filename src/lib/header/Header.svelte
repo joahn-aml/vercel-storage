@@ -1,16 +1,17 @@
 <script>
 	import Triangle from './Triangle.svelte';
 	import User from './User.svelte';
+	import { page } from '$app/stores';
 </script>
 
 <header>
 	<section>
 		<Triangle />
-		<a href="/" class="link active">Home</a>
-		<a href="/users" class="link">Users</a>
-		<a href="/calendar" class="link">Calendar</a>
-		<a href="/images" class="link">Images</a>
-		<a href="/list" class="link">List</a>
+		<a href="/" class="link" class:active={$page.url.pathname === '/'}>Home</a>
+		<a href="/users" class="link" class:active={$page.url.pathname === '/users'}>Users</a>
+		<a href="/calendar" class="link" class:active={$page.url.pathname === '/calendar'}>Calendar</a>
+		<a href="/images" class="link" class:active={$page.url.pathname === '/images'}>Images</a>
+		<a href="/list" class="link" class:active={$page.url.pathname === '/list'}>List</a>
 		<User />
 	</section>
 </header>

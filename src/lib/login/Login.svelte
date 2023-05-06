@@ -8,7 +8,6 @@
 	let password = '';
 
 	const submit = () => {
-		console.log({ username, password });
 		user.login();
 	};
 </script>
