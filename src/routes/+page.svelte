@@ -68,16 +68,16 @@
 
 	p {
 		margin-top: 100px;
-		margin-bottom: 120px;
+		margin-bottom: 100px;
 		color: var(--color-gray-200);
 		height: 20px;
 	}
 
-	section :global(a) {
+	a {
 		color: var(--color-gray-300);
 	}
 
-	section :global(a:hover) {
+	a:hover {
 		color: var(--color-gray-400);
 	}
 </style>
