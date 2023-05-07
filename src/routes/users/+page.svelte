@@ -1,7 +1,26 @@
+<script>
+	import Header from './Header.svelte';
+	import Table from './Table.svelte';
+	import { usersStore } from './users.js';
+	import { onMount } from 'svelte';
+
+	onMount(() => usersStore.getUsers());
+</script>
+
 <svelte:head>
 	<title>Users ⋅ Vercel Storage</title>
 </svelte:head>
 
 <section>
-	<div>Users</div>
+	<Header />
+	<Table />
 </section>
+
+<style>
+	section {
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 40px;
+		width: var(--content-width);
+	}
+</style>
