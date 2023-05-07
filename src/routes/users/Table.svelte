@@ -4,18 +4,20 @@
 
 <div class="table">
 	<div class="header">
-		<div class="username">username</div>
-		<div class="name">name</div>
-		<div class="description">description</div>
-		<div class="color">color</div>
+		<div class="username">Username</div>
+		<div class="name">Name</div>
+		<div class="description">Description</div>
+		<div class="color">Color</div>
+		<div class="remove" />
 	</div>
 	<div class="rows">
 		{#each $usersStore as user}
 			<div class="row" style:--color={user.color}>
-				<div class="username">{user.id}</div>
+				<div class="username"><button>{user.id}</button></div>
 				<div class="name">{user.firstname} {user.lastname}</div>
 				<div class="description">{user.description}</div>
 				<div class="color"><div class="circle" /></div>
+				<div class="remove"><button>✕</button></div>
 			</div>
 		{/each}
 	</div>
@@ -29,15 +31,17 @@
 	.header,
 	.row {
 		display: flex;
+		align-items: center;
 		gap: var(--gap);
+		height: 20px;
 	}
 
 	.header {
-		margin-bottom: 24px;
+		margin-bottom: 16px;
 	}
 
 	.row {
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 	}
 
 	.header {
@@ -47,6 +51,10 @@
 	.username {
 		min-width: 200px;
 		color: var(--color);
+	}
+	.username button {
+		all: unset;
+		cursor: pointer;
 	}
 
 	.name {
@@ -72,5 +80,23 @@
 		height: 16px;
 		border-radius: 50%;
 		background-color: var(--color);
+	}
+
+	.remove {
+		min-width: 32px;
+	}
+
+	.remove {
+		display: flex;
+		justify-content: flex-end;
+	}
+	.remove button {
+		all: unset;
+		cursor: pointer;
+		color: var(--color-gray-100);
+		transition: color ease-out 200ms 0ms;
+	}
+	.remove button:hover {
+		color: var(--color-gray-400);
 	}
 </style>
