@@ -38,6 +38,8 @@
 
 	.header {
 		margin-bottom: 16px;
+		font-size: 14px;
+		user-select: none;
 	}
 
 	.row {
