@@ -3,10 +3,10 @@
 	import Header from '$lib/header/Header.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
 	import Login from '$lib/login/Login.svelte';
-	import { user } from '$lib/auth/user.js';
+	import { userStore } from '$lib/auth/user.js';
 </script>
 
-{#if $user}
+{#if $userStore}
 	<Header />
 	<main>
 		<div><slot /></div>

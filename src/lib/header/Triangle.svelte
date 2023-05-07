@@ -1,7 +1,16 @@
 <script>
+	import { tokenStore } from '$lib/auth/user';
+	import { get } from 'svelte/store';
+
 	const ping = async () => {
-		const token = await (await fetch('/api/ping')).json();
-		console.log(JSON.stringify({ token }, null, 2));
+		const token = get(tokenStore);
+		const data = await (
+			await fetch('/api/ping', {
+				method: 'GET',
+				headers: { Authorization: `Bearer ${token}` }
+			})
+		).json();
+		console.log(JSON.stringify(data, null, 2));
 	};
 </script>
 

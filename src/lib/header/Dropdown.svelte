@@ -1,13 +1,13 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { user } from '$lib/auth/user.js';
+	import { userStore, logout } from '$lib/auth/user.js';
 </script>
 
 <section in:fade={{ duration: 100 }} out:fade={{ duration: 0 }}>
-	<div class="userid" style:--color={$user?.color}>{$user?.id}</div>
-	<div class="name">{$user?.firstname} {$user?.lastname}</div>
+	<div class="userid" style:--color={$userStore?.color}>{$userStore?.id}</div>
+	<div class="name">{$userStore?.firstname} {$userStore?.lastname}</div>
 	<div class="button-wrapper">
-		<button on:click={() => user.logout()}>Logout</button>
+		<button on:click={() => logout()}>Logout</button>
 	</div>
 </section>
 

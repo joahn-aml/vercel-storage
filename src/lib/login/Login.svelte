@@ -2,8 +2,7 @@
 	import Triangle from './Triangle.svelte';
 	import { Button, Input } from '$lib/form';
 	import { fade } from 'svelte/transition';
-	import { user } from '$lib/auth/user.js';
-	import { login } from '$lib/auth/login.js';
+	import { login } from '$lib/auth/user.js';
 
 	let username = '';
 	let password = '';
@@ -15,10 +14,17 @@
 	}
 
 	const submit = async () => {
-		const response = await login(username, password);
+		const response = await fetch('/api/login', {
+			method: 'POST',
+			body: JSON.stringify({ username, password }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		const { user, token } = await response.json();
 
-		if (response) {
-			user.login(response);
+		if (user && token) {
+			login({ user, token });
 		} else {
 			error = true;
 		}

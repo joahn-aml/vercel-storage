@@ -2,24 +2,35 @@ import { writable } from 'svelte/store';
 
 /** @typedef { import("$lib/types/user").User } User */
 
-const createUserStore = () => {
-	/** @type {import("svelte/store").Writable<null | User>} */
-	const { subscribe, set } = writable(null);
+/** @type {import("svelte/store").Writable<string | null>} */
+export const tokenStore = writable(localStorage.getItem('token'));
 
-	/** @type {(user: User) => void}  */
-	const login = (user) => {
-		set(user);
-	};
+tokenStore.subscribe((token) => {
+	if (token === null) {
+		window.localStorage.removeItem('token');
+	} else {
+		window.localStorage.setItem('token', token);
+	}
+});
 
-	const logout = () => {
-		set(null);
-	};
+/** @type {import("svelte/store").Writable<User | null>} */
+export const userStore = writable(JSON.parse(String(localStorage.getItem('user'))));
 
-	return {
-		subscribe,
-		login,
-		logout
-	};
+userStore.subscribe((user) => {
+	if (user === null) {
+		window.localStorage.removeItem('user');
+	} else {
+		window.localStorage.setItem('user', JSON.stringify(user));
+	}
+});
+
+/** @type {(params: {user: User, token: string}) => void}  */
+export const login = ({ user, token }) => {
+	tokenStore.set(token);
+	userStore.set(user);
 };
 
-export const user = createUserStore();
+export const logout = () => {
+	tokenStore.set(null);
+	userStore.set(null);
+};

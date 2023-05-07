@@ -1,10 +1,10 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
-	import { user } from '$lib/auth/user.js';
+	import { userStore } from '$lib/auth/user.js';
 
 	let dropdown = false;
 
-	$: color = $user ? $user.color : 'transparent';
+	$: color = $userStore ? $userStore.color : 'transparent';
 </script>
 
 <section>
