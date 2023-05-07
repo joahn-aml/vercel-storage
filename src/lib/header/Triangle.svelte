@@ -2,15 +2,28 @@
 	import { tokenStore } from '$lib/auth/user';
 	import { get } from 'svelte/store';
 
-	const ping = async () => {
+	const getValidToken = async () => {
 		const token = get(tokenStore);
-		const data = await (
+		const { valid } = await (
 			await fetch('/api/ping', {
 				method: 'GET',
 				headers: { Authorization: `Bearer ${token}` }
 			})
 		).json();
-		console.log(JSON.stringify(data, null, 2));
+
+		return valid;
+	};
+
+	const getAppVersion = async () => {
+		const { version } = await (await fetch('/api/version')).json();
+
+		return version;
+	};
+
+	const ping = async () => {
+		const [valid, version] = await Promise.all([getValidToken(), getAppVersion()]);
+
+		console.log(JSON.stringify({ valid, version }, null, 2));
 	};
 </script>
 
