@@ -15,7 +15,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 		height: 20px;
 	}
 

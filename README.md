@@ -1,22 +1,39 @@
-# create-svelte
+# Vercel Storage Demo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A small [Vercel Storage](https://vercel.com/blog/vercel-storage) demo application.
 
-## Creating a project
+## Technologies used
 
-If you're seeing this, you've probably already done this step. Congrats!
+Some of the technologies used in this project.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Vercel Storage
+- Vercel Hosting
+- SvelteKit
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Environment variables
+
+The required environment variables needed. (With values removed obviously.)
+
 ```
+# Vercel KV
+KV_URL=""
+KV_REST_API_URL=""
+KV_REST_API_TOKEN=""
+KV_REST_API_READ_ONLY_TOKEN=""
+
+# JWT
+JWT_KEY=""
+```
+
+In development you can can either add the deelopment environment variables manually to an `.env` file. Or you can pull variables with the [Vercel CLI](https://vercel.com/docs/cli/env).
+
+In production the environment variables stored in your [Vercel project](https://vercel.com/docs/concepts/projects/environment-variables) will be used.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone the project and install dependencies with `npm install` (or `pnpm install` or `yarn`).
+
+Then start a development server:
 
 ```bash
 npm run dev
@@ -25,14 +42,6 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Demo
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[https://vercel-storage-orpin.vercel.app/](https://vercel-storage-orpin.vercel.app/)
