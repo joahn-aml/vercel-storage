@@ -1,7 +1,7 @@
 <script>
 	import Header from './Header.svelte';
 	import Table from './Table.svelte';
-	import { usersStore } from './users.js';
+	import { usersStore } from '$lib/users/users.js';
 	import { onMount } from 'svelte';
 
 	onMount(() => usersStore.getUsers());

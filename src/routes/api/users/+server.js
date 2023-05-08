@@ -5,6 +5,8 @@ import {
 	KV_REST_API_TOKEN,
 	KV_REST_API_READ_ONLY_TOKEN
 } from '$env/static/private';
+import bcrypt from 'bcryptjs';
+import { randSkill } from '@ngneat/falso';
 
 export async function GET({ request }) {
 	if (!valid(request)) {
@@ -38,4 +40,40 @@ export async function GET({ request }) {
 	);
 
 	return json({ users });
+}
+
+export async function POST({ request }) {
+	if (!valid(request)) {
+		return json({ valid: false }, { status: 401 });
+	}
+
+	/** @type {{username: string, firstname: string, lastname: string, password: string }} */
+	const { username, firstname, lastname, password } = await request.json();
+
+	const hash = bcrypt.hashSync(password);
+
+	const description = randSkill();
+
+	const colors = ['yellow', 'magenta', 'cyan', 'aqua', 'aquamarine', 'wheat'];
+	const color = colors[Math.floor(Math.random() * colors.length)];
+
+	await (
+		await fetch(`${KV_REST_API_URL}/set/${username}`, {
+			method: 'POST',
+			body: JSON.stringify({
+				id: username.toLowerCase(),
+				firstname,
+				lastname,
+				password: hash,
+				description,
+				color
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${KV_REST_API_TOKEN}`
+			}
+		})
+	).json();
+
+	return json({ success: true });
 }

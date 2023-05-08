@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { JWT_KEY } from '$env/static/private';
 
-/** @type {(params: Request) => boolean} */
+/** @type {(request: Request) => boolean} */
 export const valid = (request) => {
 	const authorization = request.headers.get('Authorization');
 

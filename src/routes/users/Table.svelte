@@ -1,5 +1,5 @@
 <script>
-	import { usersStore } from './users.js';
+	import { usersStore } from '$lib/users/users.js';
 </script>
 
 <div class="table">
@@ -13,7 +13,7 @@
 	<div class="rows">
 		{#each $usersStore as user}
 			<div class="row" style:--color={user.color}>
-				<div class="username"><button>{user.id}</button></div>
+				<div class="username">{user.id}</div>
 				<div class="name">{user.firstname} {user.lastname}</div>
 				<div class="description">{user.description}</div>
 				<div class="color"><div class="circle" /></div>
@@ -54,10 +54,6 @@
 		min-width: 200px;
 		color: var(--color);
 	}
-	.username button {
-		all: unset;
-		cursor: pointer;
-	}
 
 	.name {
 		min-width: 300px;
@@ -95,7 +91,7 @@
 	.remove button {
 		all: unset;
 		cursor: pointer;
-		color: var(--color-gray-100);
+		color: var(--color-gray-200);
 		transition: color ease-out 200ms 0ms;
 	}
 	.remove button:hover {

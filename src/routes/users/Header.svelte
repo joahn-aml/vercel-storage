@@ -1,11 +1,15 @@
 <script>
-	import { usersStore } from './users.js';
+	import Create from './Create.svelte';
+	import { usersStore } from '$lib/users/users.js';
+
+	let open = false;
 </script>
 
 <header>
 	<h1><button on:click={() => usersStore.getUsers()}>Users</button></h1>
-	<button class="add">+</button>
+	<button class="add" on:click={() => (open = true)}>+</button>
 </header>
+<Create {open} close={() => (open = false)} />
 
 <style>
 	header {
@@ -32,7 +36,7 @@
 		font-size: 24px;
 		font-weight: 300;
 		line-height: 0;
-		color: var(--color-gray-100);
+		color: var(--color-gray-200);
 		cursor: pointer;
 		transition: color ease-out 200ms 0ms;
 	}
