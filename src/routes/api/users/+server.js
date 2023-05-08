@@ -77,3 +77,27 @@ export async function POST({ request }) {
 
 	return json({ success: true });
 }
+
+export async function DELETE({ request }) {
+	if (!valid(request)) {
+		return json({ valid: false }, { status: 401 });
+	}
+
+	/** @type {{username: string }} */
+	const { username } = await request.json();
+
+	await (
+		await fetch(`${KV_REST_API_URL}/del/${username}`, {
+			method: 'POST',
+			body: JSON.stringify({
+				id: username.toLowerCase()
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${KV_REST_API_TOKEN}`
+			}
+		})
+	).json();
+
+	return json({ success: true });
+}

@@ -1,5 +1,9 @@
 <script>
 	import { usersStore } from '$lib/users/users.js';
+	import Remove from './Remove.svelte';
+
+	/** @type {string | null } */
+	let removeUser = null;
 </script>
 
 <div class="table">
@@ -17,11 +21,12 @@
 				<div class="name">{user.firstname} {user.lastname}</div>
 				<div class="description">{user.description}</div>
 				<div class="color"><div class="circle" /></div>
-				<div class="remove"><button>✕</button></div>
+				<div class="remove"><button on:click={() => (removeUser = user.id)}>✕</button></div>
 			</div>
 		{/each}
 	</div>
 </div>
+<Remove username={removeUser} close={() => (removeUser = null)} />
 
 <style>
 	.table {

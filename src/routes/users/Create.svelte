@@ -12,6 +12,12 @@
 	let password = '';
 
 	$: creatable = [username, firstname, lastname, password].every((value) => value !== '');
+	$: if (open) {
+		username = '';
+		firstname = '';
+		lastname = '';
+		password = '';
+	}
 
 	const create = async () => {
 		if (!creatable) {

@@ -31,7 +31,17 @@ const createUsersStore = () => {
 		await getUsers();
 	};
 
-	const removeUser = async () => {
+	/** @type {(username: string ) => Promise<void>} */
+	const removeUser = async (username) => {
+		await fetch('/api/users', {
+			method: 'DELETE',
+			body: JSON.stringify({ username }),
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${get(tokenStore)}`
+			}
+		});
+
 		await getUsers();
 	};
 
