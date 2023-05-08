@@ -3,36 +3,29 @@
 		<div>
 			<h2 style:--color={'var(--color-5)'}>Users</h2>
 			<p>
-				Create, view, change and remove users. Uses <a
-					href="https://vercel.com/storage/kv"
-					target="_blank"
-					rel="noopener noreferrer">Vercel KV</a
-				>.
+				<a href="https://vercel.com/storage/kv" target="_blank" rel="noopener noreferrer"
+					>Vercel KV</a
+				>
 			</p>
+			<p>Create, view and remove users.</p>
 		</div>
 		<div>
 			<h2 style:--color={'var(--color-4)'}>Calendar</h2>
 			<p>
-				A calendar to drag and drop events. Uses <a
-					href="https://vercel.com/storage/postgres"
-					target="_blank"
-					rel="noopener noreferrer">Vercel Postgres</a
-				>.
+				<a href="https://vercel.com/storage/postgres" target="_blank" rel="noopener noreferrer"
+					>Vercel Postgres</a
+				>
 			</p>
+			<p>A calendar to drag and drop user events.</p>
 		</div>
 		<div>
 			<h2 style:--color={'var(--color-2)'}>Images</h2>
 			<p>
-				Upload, view and remove images. Uses <a
-					href="https://vercel.com/storage/blob"
-					target="_blank"
-					rel="noopener noreferrer">Vercel Blob</a
+				<a href="https://vercel.com/storage/blob" target="_blank" rel="noopener noreferrer"
+					>Vercel Blob</a
 				>.
 			</p>
-		</div>
-		<div>
-			<h2 style:--color={'var(--color-6)'}>List</h2>
-			<p>A custom made virtual list with randomly generated data.</p>
+			<p>Upload, view and remove images.</p>
 		</div>
 	</div>
 </section>
@@ -48,9 +41,13 @@
 
 	.content {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: var(--gap);
 		width: var(--content-width);
+	}
+
+	.content > div {
+		padding-bottom: 60px;
 	}
 
 	h2,
@@ -69,7 +66,7 @@
 
 	p {
 		color: var(--color-gray-200);
-		padding-bottom: 60px;
+		padding-bottom: 5px;
 	}
 
 	a {

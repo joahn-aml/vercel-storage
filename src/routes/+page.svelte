@@ -16,12 +16,10 @@
 	</header>
 
 	<p>
-		A <a href="https://vercel.com/blog/vercel-storage" target="_blank" rel="noopener noreferrer"
-			>Vercel Storage</a
-		>
-		and
-		<a href="https://www.patterns.dev/posts/virtual-lists" target="_blank" rel="noopener noreferrer"
-			>virtual list</a
+		A small <a
+			href="https://vercel.com/blog/vercel-storage"
+			target="_blank"
+			rel="noopener noreferrer">Vercel Storage</a
 		> demo application.
 	</p>
 </section>

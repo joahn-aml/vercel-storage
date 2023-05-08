@@ -11,7 +11,6 @@
 		<a href="/users" class="link" class:active={$page.url.pathname === '/users'}>Users</a>
 		<a href="/calendar" class="link" class:active={$page.url.pathname === '/calendar'}>Calendar</a>
 		<a href="/images" class="link" class:active={$page.url.pathname === '/images'}>Images</a>
-		<a href="/list" class="link" class:active={$page.url.pathname === '/list'}>List</a>
 		<User />
 	</section>
 </header>

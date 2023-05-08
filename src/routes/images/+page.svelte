@@ -8,10 +8,7 @@
 		<a href="https://vercel.com/storage/blob" target="_blank" rel="noopener noreferrer"
 			>Vercel Blob</a
 		>
-		is still in a private closed beta. This page will get implemented when
-		<a href="https://vercel.com/storage/blob" target="_blank" rel="noopener noreferrer"
-			>Vercel Blob</a
-		> is available.
+		is still in a private closed beta. This page will get implemented when it is available for use.
 	</div>
 </section>
 
