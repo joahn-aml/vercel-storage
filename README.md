@@ -6,7 +6,7 @@ A small [Vercel Storage](https://vercel.com/blog/vercel-storage) demo applicatio
 
 Some of the technologies used in this project.
 
-- Vercel Storage
+- Vercel Storage (KV, Postgres, Blob)
 - Vercel Hosting
 - SvelteKit
 
@@ -20,6 +20,15 @@ KV_URL=""
 KV_REST_API_URL=""
 KV_REST_API_TOKEN=""
 KV_REST_API_READ_ONLY_TOKEN=""
+
+# Vercel Postgres
+POSTGRES_URL=""
+POSTGRES_PRISMA_URL=""
+POSTGRES_URL_NON_POOLING=""
+POSTGRES_USER=""
+POSTGRES_HOST=""
+POSTGRES_PASSWORD=""
+POSTGRES_DATABASE=""
 
 # JWT
 JWT_KEY=""

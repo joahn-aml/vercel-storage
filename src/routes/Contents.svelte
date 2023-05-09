@@ -10,13 +10,13 @@
 			<p>Create, view and remove users.</p>
 		</div>
 		<div>
-			<h2 style:--color={'var(--color-4)'}>Calendar</h2>
+			<h2 style:--color={'var(--color-4)'}>Tasks</h2>
 			<p>
 				<a href="https://vercel.com/storage/postgres" target="_blank" rel="noopener noreferrer"
 					>Vercel Postgres</a
 				>
 			</p>
-			<p>A calendar to drag and drop user events.</p>
+			<p>A board to drag and drop user tasks.</p>
 		</div>
 		<div>
 			<h2 style:--color={'var(--color-2)'}>Images</h2>
@@ -71,6 +71,7 @@
 
 	a {
 		color: var(--color-gray-300);
+		transition: color ease-out 200ms 0ms;
 	}
 
 	a:hover {

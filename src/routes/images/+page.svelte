@@ -3,7 +3,7 @@
 </svelte:head>
 
 <section>
-	<div class="todo">Todo</div>
+	<div class="todo">Images</div>
 	<div class="description">
 		<a href="https://vercel.com/storage/blob" target="_blank" rel="noopener noreferrer"
 			>Vercel Blob</a
@@ -24,7 +24,7 @@
 		font-weight: 700;
 		letter-spacing: 1px;
 		font-size: 16px;
-		color: var(--color-2);
+		color: var(--color-gray-100);
 		margin-bottom: 20px;
 	}
 

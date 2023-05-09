@@ -6,7 +6,7 @@ import {
 	KV_REST_API_READ_ONLY_TOKEN
 } from '$env/static/private';
 import bcrypt from 'bcryptjs';
-import { randSkill } from '@ngneat/falso';
+import { randSkill, rand } from '@ngneat/falso';
 
 export async function GET({ request }) {
 	if (!valid(request)) {
@@ -51,11 +51,8 @@ export async function POST({ request }) {
 	const { username, firstname, lastname, password } = await request.json();
 
 	const hash = bcrypt.hashSync(password);
-
 	const description = randSkill();
-
-	const colors = ['yellow', 'magenta', 'cyan', 'aqua', 'aquamarine', 'wheat'];
-	const color = colors[Math.floor(Math.random() * colors.length)];
+	const color = rand(['yellow', 'magenta', 'cyan', 'aqua', 'aquamarine', 'wheat']);
 
 	await (
 		await fetch(`${KV_REST_API_URL}/set/${username}`, {

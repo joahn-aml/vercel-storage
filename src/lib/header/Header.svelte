@@ -9,7 +9,7 @@
 		<Triangle />
 		<a href="/" class="link" class:active={$page.url.pathname === '/'}>Home</a>
 		<a href="/users" class="link" class:active={$page.url.pathname === '/users'}>Users</a>
-		<a href="/calendar" class="link" class:active={$page.url.pathname === '/calendar'}>Calendar</a>
+		<a href="/tasks" class="link" class:active={$page.url.pathname === '/tasks'}>Tasks</a>
 		<a href="/images" class="link" class:active={$page.url.pathname === '/images'}>Images</a>
 		<User />
 	</section>
