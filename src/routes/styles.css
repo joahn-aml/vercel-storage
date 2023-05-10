@@ -28,6 +28,7 @@ body {
 	padding: 0;
 	background-color: var(--color-bg);
 	overflow-x: hidden;
+	overflow-y: scroll;
 	overscroll-behavior: none;
 }
 
