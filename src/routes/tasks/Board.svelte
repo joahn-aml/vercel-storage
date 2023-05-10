@@ -1,10 +1,11 @@
 <script>
 	import Task from './Task.svelte';
 	import { tasksStore } from './tasks.js';
-	import { dragged, dropzone } from './dragdrop.js';
+	import { draggedStore, dropzoneStore } from './dragdrop.js';
 	import { get } from 'svelte/store';
 
 	/** @typedef {import("$lib/types/task").Task} Task */
+
 	/** @type {(a: Task, b: Task) => number} */
 	const compareUpdated = (a, b) => Number(a.updated) - Number(b.updated);
 
@@ -14,11 +15,12 @@
 	$: reviewed = $tasksStore.filter((task) => task.status === 'reviewed').sort(compareUpdated);
 
 	const drop = () => {
-		const d = get(dragged);
-		if (d === null) return;
+		const dragged = get(draggedStore);
+		if (dragged === null) return;
 
-		tasksStore.updateTask(d, get(dropzone));
-		dragged.set(null);
+		tasksStore.updateTask(dragged, get(dropzoneStore));
+		draggedStore.set(null);
+		dropzoneStore.set(null);
 	};
 </script>
 
@@ -30,36 +32,40 @@
 		<div>Reviewed</div>
 	</div>
 	<div class="board">
-		<div on:dragenter={() => dropzone.set('new')} on:dragover|preventDefault on:drop={() => drop()}>
+		<div
+			on:dragenter={() => dropzoneStore.set('new')}
+			on:dragover|preventDefault
+			on:drop={() => drop()}
+		>
 			{#each news as task (task.id)}
-				<Task {task} on:dragstart={() => dragged.set(task.id)} />
+				<Task {task} on:dragstart={() => draggedStore.set(task.id)} />
 			{/each}
 		</div>
 		<div
-			on:dragenter={() => dropzone.set('progress')}
+			on:dragenter={() => dropzoneStore.set('progress')}
 			on:dragover|preventDefault
 			on:drop={() => drop()}
 		>
 			{#each progress as task (task.id)}
-				<Task {task} on:dragstart={() => dragged.set(task.id)} />
+				<Task {task} on:dragstart={() => draggedStore.set(task.id)} />
 			{/each}
 		</div>
 		<div
-			on:dragenter={() => dropzone.set('completed')}
+			on:dragenter={() => dropzoneStore.set('completed')}
 			on:dragover|preventDefault
 			on:drop={() => drop()}
 		>
 			{#each completed as task (task.id)}
-				<Task {task} on:dragstart={() => dragged.set(task.id)} />
+				<Task {task} on:dragstart={() => draggedStore.set(task.id)} />
 			{/each}
 		</div>
 		<div
-			on:dragenter={() => dropzone.set('reviewed')}
+			on:dragenter={() => dropzoneStore.set('reviewed')}
 			on:dragover|preventDefault
 			on:drop={() => drop()}
 		>
 			{#each reviewed as task (task.id)}
-				<Task {task} on:dragstart={() => dragged.set(task.id)} />
+				<Task {task} on:dragstart={() => draggedStore.set(task.id)} />
 			{/each}
 		</div>
 	</div>

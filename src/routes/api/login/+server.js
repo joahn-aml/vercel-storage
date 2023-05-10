@@ -3,8 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { KV_REST_API_URL, KV_REST_API_READ_ONLY_TOKEN, JWT_KEY } from '$env/static/private';
 
-/** @typedef { import("$lib/types/user").User } User */
-
+/** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
 	const { username, password } = await request.json();
 

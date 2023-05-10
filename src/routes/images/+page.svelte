@@ -3,7 +3,7 @@
 </svelte:head>
 
 <section>
-	<div class="todo">Images</div>
+	<div class="title">Images</div>
 	<div class="description">
 		<a href="https://vercel.com/storage/blob" target="_blank" rel="noopener noreferrer"
 			>Vercel Blob</a
@@ -20,7 +20,8 @@
 		width: var(--content-width);
 	}
 
-	.todo {
+	.title {
+		height: 20px;
 		font-weight: 700;
 		letter-spacing: 1px;
 		font-size: 16px;
